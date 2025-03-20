@@ -1,0 +1,4 @@
+Orange business
+user=admin
+password=admin
+router config 
