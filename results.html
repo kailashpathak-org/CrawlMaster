@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #ff6600;
+            margin-bottom: 10px;
+        }
+        .info {
+            background-color: #ff6600;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .info span {
+            display: block;
+            font-size: 16px;
+        }
+        .company {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .keyword {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #ff6600;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>GitHub Search Results</h2>
+    
+    <div class="info">
+        <span class="company">Company: {{ company }}</span>
+        <span class="keyword">Keyword: {{ keyword }}</span>
+    </div>
+
+    {% if results %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Repository</th>
+                    <th>File</th>
+                    <th>Path</th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.repository.full_name }}</td>
+                    <td>{{ result.name }}</td>
+                    <td>{{ result.path }}</td>
+                    <td><a href="{{ result.html_url }}" target="_blank">View File</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 GitHub Repository Search</h1>
+        <p>Search for repositories by company and keyword</p>
+
+        <div class="search-box">
+            <form action="/" method="POST">
+                <label for="company">Company/Organization Name:</label>
+                <input type="text" id="company" name="company" placeholder="Enter company name..." required>
+
+                <label for="keyword">Keyword:</label>
+                <input type="text" id="keyword" name="keyword" placeholder="Enter search keyword..." required>
+
+                <button type="submit" class="search-button">🔍 Search</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
