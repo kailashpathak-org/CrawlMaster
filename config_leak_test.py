@@ -3,7 +3,7 @@
 
 company_name = "orangebusiness"
 api_key = "TEST-API-KEY-1234567890"
-database_password = "TestPassword123"
+password = "supersecret"
 
 print(f"Company: {orangebusiness}")
 print(f"API Key: {api_key}")
