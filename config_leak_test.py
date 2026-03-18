@@ -2,8 +2,8 @@
 # If you find this file, GitHub Code Search is working!
 
 company_name = "orangebusiness"
-api_key = "TEST-API-KEY-1234567890"
-password = "supersecret"
+api_key = "TESTAPIKEY1234567890"
+password = "admin123"
 
 print(f"Company: {orangebusiness}")
 print(f"API Key: {api_key}")
